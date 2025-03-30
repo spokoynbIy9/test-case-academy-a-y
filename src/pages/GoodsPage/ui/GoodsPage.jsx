@@ -1,5 +1,7 @@
+import { GoodsList } from '@/entities/good/ui/GoodsList/GoodsList';
+
 const GoodsPage = () => {
-  return <div>GoodsPage</div>;
+  return <GoodsList />;
 };
 
 export default GoodsPage;

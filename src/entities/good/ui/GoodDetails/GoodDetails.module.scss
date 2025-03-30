@@ -1,0 +1,14 @@
+.goodContainer {
+  display: grid !important;
+  grid-template-columns: 100px auto;
+  column-gap: 1rem;
+  justify-content: center;
+}
+
+.galleryContainer {
+  gap: 2rem;
+}
+
+.goodInfo {
+  padding: 20px;
+}

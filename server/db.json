@@ -8,8 +8,8 @@
                     "id": 1,
                     "name": "черный",
                     "images": [
-                        "/images/1/black_front.png",
-                        "/images/1/black_back.png"
+                        "https://fakeimg.deblan.org/200x200",
+                        "https://fakeimg.deblan.org/200x300"
                     ],
                     "price": "123.00",
                     "description": "Описание для \"Футболка черный\"",

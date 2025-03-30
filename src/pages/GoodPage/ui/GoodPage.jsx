@@ -1,5 +1,7 @@
+import { GoodDetails } from '@/entities/good/ui/GoodDetails/GoodDetails';
+
 const GoodPage = () => {
-  return <div>GoodPage</div>;
+  return <GoodDetails />;
 };
 
 export default GoodPage;

@@ -1,0 +1,13 @@
+.goodsContainer {
+  gap: 1rem;
+  flex-direction: row !important;
+}
+
+.errorContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  max-width: 300;
+}
