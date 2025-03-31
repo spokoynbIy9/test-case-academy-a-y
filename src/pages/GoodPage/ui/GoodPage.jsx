@@ -1,4 +1,4 @@
-import { GoodDetails } from '@/entities/good/ui/GoodDetails/GoodDetails';
+import { GoodDetails } from '@/features/goodDetails/ui/GoodDetails/GoodDetails';
 
 const GoodPage = () => {
   return <GoodDetails />;

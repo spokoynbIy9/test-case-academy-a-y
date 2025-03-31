@@ -23,8 +23,8 @@
                     "id": 2,
                     "name": "белый",
                     "images": [
-                        "/images/1/white_front.png",
-                        "/images/1/white_back.png"
+                        "https://fakeimg.deblan.org/250x200",
+                        "https://fakeimg.deblan.org/250x300"
                     ],
                     "price": "125.00",
                     "description": "Описание для \"Футболка белый\"",
@@ -40,8 +40,8 @@
                     "id": 3,
                     "name": "серый",
                     "images": [
-                        "/images/1/gray_front.png",
-                        "/images/1/gray_back.png"
+                        "https://fakeimg.deblan.org/300x200",
+                        "https://fakeimg.deblan.org/300x300"
                     ],
                     "price": "120.00",
                     "description": "Описание для \"Футболка серый\"",
@@ -57,8 +57,8 @@
                     "id": 1,
                     "name": "синий",
                     "images": [
-                        "/images/2/blue_front.png",
-                        "/images/2/blue_back.png"
+                        "https://fakeimg.deblan.org/200x200",
+                        "https://fakeimg.deblan.org/200x300"
                     ],
                     "price": "150.00",
                     "description": "Описание для \"Толстовка синий\"",
@@ -73,8 +73,8 @@
                     "id": 2,
                     "name": "красный",
                     "images": [
-                        "/images/2/red_front.png",
-                        "/images/2/red_back.png"
+                        "https://fakeimg.deblan.org/250x200",
+                        "https://fakeimg.deblan.org/250x300"
                     ],
                     "price": "155.00",
                     "description": "Описание для \"Толстовка красный\"",
@@ -89,8 +89,8 @@
                     "id": 3,
                     "name": "зеленый",
                     "images": [
-                        "/images/2/green_front.png",
-                        "/images/2/green_back.png"
+                        "https://fakeimg.deblan.org/300x200",
+                        "https://fakeimg.deblan.org/300x300"
                     ],
                     "price": "148.00",
                     "description": "Описание для \"Толстовка зеленый\"",

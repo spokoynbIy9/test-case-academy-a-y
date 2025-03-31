@@ -1,21 +1,7 @@
 .orderContainer {
-  max-width: 500px;
+  max-width: 1000px;
   margin: 0 auto;
+  gap: 2rem;
+  min-height: 100vh;
   justify-content: center;
-  gap: 2rem;
-  height: 100vh;
-}
-
-.goodsView {
-  flex-direction: row !important;
-  gap: 2rem;
-}
-
-.goodInfo {
-  align-items: center;
-}
-
-.buttonsContainer {
-  flex-direction: row !important;
-  justify-content: space-between;
 }

@@ -11,6 +11,7 @@
 
 .goodInfo {
   padding: 20px;
+  gap: 1rem;
 }
 
 .activeImg {
@@ -18,5 +19,6 @@
 }
 
 .defaultImage {
+  object-fit: cover;
   cursor: pointer;
 }

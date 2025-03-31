@@ -1,4 +1,4 @@
-import { GoodsList } from '@/entities/good/ui/GoodsList/GoodsList';
+import { GoodsList } from '@/features/goodDetails/ui/GoodsList/GoodsList';
 
 const GoodsPage = () => {
   return <GoodsList />;

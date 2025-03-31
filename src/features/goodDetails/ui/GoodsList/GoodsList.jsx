@@ -1,5 +1,5 @@
 import { Alert, Box, CircularProgress, Stack } from '@mui/material';
-import { useGetGoodsQuery } from '../../api/goodApi';
+import { useGetGoodsQuery } from '../../../../entities/good/api/goodApi';
 import classes from './GoodsList.module.scss';
 import GoodsItem from '../GoodsItem/GoodsItem';
 
