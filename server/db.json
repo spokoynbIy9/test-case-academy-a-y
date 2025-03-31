@@ -50,35 +50,35 @@
             ]
         },
         {
-            "id": 2,
-            "name": "Футболка",
+            "id": 3,
+            "name": "Толстовка",
             "colors": [
                 {
                     "id": 1,
-                    "name": "черный",
+                    "name": "синий",
                     "images": [
-                        "/images/1/black_front.png",
-                        "/images/1/black_back.png"
+                        "/images/2/blue_front.png",
+                        "/images/2/blue_back.png"
                     ],
-                    "price": "123.00",
-                    "description": "Описание для \"Футболка черный\"",
+                    "price": "150.00",
+                    "description": "Описание для \"Толстовка синий\"",
                     "sizes": [
                         1,
                         2,
-                        3
+                        3,
+                        4
                     ]
                 },
                 {
                     "id": 2,
-                    "name": "белый",
+                    "name": "красный",
                     "images": [
-                        "/images/1/white_front.png",
-                        "/images/1/white_back.png"
+                        "/images/2/red_front.png",
+                        "/images/2/red_back.png"
                     ],
-                    "price": "125.00",
-                    "description": "Описание для \"Футболка белый\"",
+                    "price": "155.00",
+                    "description": "Описание для \"Толстовка красный\"",
                     "sizes": [
-                        1,
                         2,
                         3,
                         4,
@@ -87,14 +87,18 @@
                 },
                 {
                     "id": 3,
-                    "name": "серый",
+                    "name": "зеленый",
                     "images": [
-                        "/images/1/gray_front.png",
-                        "/images/1/gray_back.png"
+                        "/images/2/green_front.png",
+                        "/images/2/green_back.png"
                     ],
-                    "price": "120.00",
-                    "description": "Описание для \"Футболка серый\"",
-                    "sizes": []
+                    "price": "148.00",
+                    "description": "Описание для \"Толстовка зеленый\"",
+                    "sizes": [
+                        1,
+                        3,
+                        5
+                    ]
                 }
             ]
         }

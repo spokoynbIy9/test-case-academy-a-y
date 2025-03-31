@@ -31,6 +31,8 @@ export const GoodDetails = () => {
     selected: {},
   });
 
+  const [selectedImage, setSelectedImage] = useState('');
+
   const [selectedSize, setSelectedSize] = useState(null);
 
   const { data: sizes } = useGetSizesPerCodesQuery(
@@ -53,9 +55,13 @@ export const GoodDetails = () => {
     setSelectedSize(findPerId(sizes, event.target.value));
   };
 
-  const addToCart = (title, color, size, price) => {
+  const changeActiveImage = (image) => {
+    setSelectedImage(image);
+  };
+
+  const addToCart = (img, name, color, size, price) => {
     const hash = sha256(
-      JSON.stringify({ title, color, size, price })
+      JSON.stringify({ name, color, size, price })
     ).toString();
 
     const similiarGood = cart.find((good) => good.id === hash);
@@ -63,10 +69,11 @@ export const GoodDetails = () => {
     if (!similiarGood) {
       const currentGood = {
         id: hash,
-        title,
+        name,
         color,
         size,
         price,
+        img,
       };
 
       dispatch(addGood(currentGood));
@@ -88,16 +95,31 @@ export const GoodDetails = () => {
     }
   }, [sizes]);
 
+  useEffect(() => {
+    if (Object.entries(colorState.selected).length) {
+      setSelectedImage(colorState.selected.images[0]);
+    }
+  }, [colorState.selected]);
+
   return good && Object.entries(colorState.selected).length ? (
     <Stack className={classes.goodContainer}>
       <Stack className={classes.galleryContainer}>
         {colorState.selected.images.map((image) => (
-          <img key={image} src={image} width={50} height={70} />
+          <img
+            onClick={() => changeActiveImage(image)}
+            className={`${classes.defaultImage} ${
+              selectedImage === image ? classes.activeImg : ''
+            }`}
+            key={image}
+            src={image}
+            width={50}
+            height={70}
+          />
         ))}
       </Stack>
       <Stack>
         <img
-          src={colorState.selected.images[0]}
+          src={selectedImage}
           alt={good.name + ' ' + colorState.selected.name}
           width={350}
           height={400}
@@ -148,6 +170,7 @@ export const GoodDetails = () => {
           <Button
             onClick={() =>
               addToCart(
+                colorState.selected.images[0],
                 good.name,
                 colorState.selected.name,
                 selectedSize.label,

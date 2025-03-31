@@ -10,28 +10,37 @@ import {
 import classes from './GoodsItem.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { RoutesPath } from '@/app/providers/Router/config/RouterConfig';
+import { useCallback } from 'react';
 
 const GoodsItem = (props) => {
   const navigate = useNavigate();
   const { good } = props;
 
-  const transferToDetails = (goodId) => {
-    const path = RoutesPath.GoodPage.replace(':id', goodId);
-    navigate(path);
-  };
+  const imageUrl = good.colors[0].images[0];
+  const colorName = good.colors[0].name;
+
+  const transferToDetails = useCallback(
+    (goodId) => {
+      const path = RoutesPath.GoodPage.replace(':id', goodId);
+      navigate(path);
+    },
+    [navigate]
+  );
 
   return (
     <Card
-      className={classes.container}
+      className={classes.itemContainer}
       onClick={() => transferToDetails(good.id)}
     >
       <CardMedia
         component="img"
-        image={good.colors[0].images[0]}
-        alt={good.name + ' ' + good.colors[0].name}
+        image={imageUrl}
+        alt={good.name + ' ' + colorName}
       />
       <CardContent>
-        <Typography>{good.name}</Typography>
+        <Typography variant="body1" component="h3" gutterBottom>
+          {good.name}
+        </Typography>
       </CardContent>
     </Card>
   );
