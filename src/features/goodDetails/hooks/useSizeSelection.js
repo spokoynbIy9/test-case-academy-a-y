@@ -2,9 +2,9 @@ import { useGetSizesPerCodesQuery } from '@/entities/size/api/sizeApi';
 import { findPerId } from '@/shared/lib/helpers/findPerId';
 import { useCallback, useEffect, useState } from 'react';
 
-export const useSizeSelection = (sizeCodes = []) => {
+export const useSizeSelection = (sizeCodes) => {
   const { data: sizes } = useGetSizesPerCodesQuery(sizeCodes, {
-    skip: sizeCodes.length === 0,
+    skip: !sizeCodes,
   });
 
   const [selectedSize, setSelectedSize] = useState(null);

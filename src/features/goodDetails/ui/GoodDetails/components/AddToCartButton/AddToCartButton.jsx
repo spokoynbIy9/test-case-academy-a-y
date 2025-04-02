@@ -27,5 +27,9 @@ export const AddToCartButton = ({ good, color, size }) => {
     }
   }, [cart, color, dispatch, good.name, size]);
 
-  return <Button onClick={addToCart}>Добавить</Button>;
+  return (
+    <Button onClick={addToCart} disabled={!size}>
+      Добавить
+    </Button>
+  );
 };
