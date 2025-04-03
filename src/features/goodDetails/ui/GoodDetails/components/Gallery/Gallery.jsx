@@ -1,5 +1,5 @@
 import { Stack } from '@mui/material';
-import GalleryItem from './GalleryItem';
+import { GalleryItem } from './GalleryItem';
 import classes from './Gallery.module.scss';
 
 export const Gallery = ({ images, selectedImage, onSelect }) => {

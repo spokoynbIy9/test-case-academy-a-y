@@ -7,12 +7,7 @@ const goodApi = baseApi.injectEndpoints({
         url: `/goods`,
       }),
     }),
-    getGoodPerId: build.query({
-      query: (id) => ({
-        url: `/goods/${id}`,
-      }),
-    }),
   }),
 });
 
-export const { useGetGoodsQuery, useGetGoodPerIdQuery } = goodApi;
+export const { useGetGoodsQuery } = goodApi;

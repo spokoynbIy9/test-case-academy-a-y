@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
 import classes from './Gallery.module.scss';
 
-const GalleryItem = ({ image, isActive, chooseImage }) => {
+export const GalleryItem = ({ image, isActive, chooseImage }) => {
   return (
     <div
       className={`${classes.imageWrapper} ${isActive ? classes.active : ''}`}
@@ -10,5 +10,3 @@ const GalleryItem = ({ image, isActive, chooseImage }) => {
     </div>
   );
 };
-
-export default GalleryItem;

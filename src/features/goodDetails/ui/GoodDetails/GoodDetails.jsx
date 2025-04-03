@@ -1,10 +1,6 @@
 import { useParams } from 'react-router-dom';
 import classes from './GoodDetails.module.scss';
 import { Alert, Box, CircularProgress, Stack } from '@mui/material';
-import { useGetGoodPerIdQuery } from '../../../../entities/good/api/goodApi';
-import { useColorSelection } from '@/features/goodDetails/hooks/useColorSelection';
-import { useSizeSelection } from '@/features/goodDetails/hooks/useSizeSelection';
-import { useImageSelection } from '@/features/goodDetails/hooks/useImageSelection';
 import {
   AddToCartButton,
   ColorPicker,
@@ -14,53 +10,44 @@ import {
   SizePicker,
 } from '@/features/goodDetails/ui/GoodDetails/components';
 
+import { useGoodState } from '../../hooks/useGoodState';
+import { useMemo } from 'react';
+import { useGood } from '@/entities/good/model';
+
 export const GoodDetails = () => {
   const { id } = useParams();
 
+  const { getGoodById, getSizesByIds } = useGood();
+
+  const good = getGoodById(id);
+
   const {
-    data: good,
-    isLoading: isLoadingGood,
-    isError,
-    error,
-  } = useGetGoodPerIdQuery(id);
+    colorId,
+    sizeId,
+    selectedImage,
+    setColorId,
+    setSelectedImage,
+    setSizeId,
+  } = useGoodState(good?.colors || []);
 
-  const { colors, selectedColor, changeColor } = useColorSelection(
-    good?.colors || []
+  const selectedColor = useMemo(
+    () => good?.colors?.find((c) => c.id === colorId),
+    [good?.colors, colorId]
   );
 
-  const { sizes, selectedSize, changeSize, hasSizes } = useSizeSelection(
-    selectedColor?.sizes
+  const sizes = useMemo(
+    () => getSizesByIds(selectedColor?.sizes),
+    [getSizesByIds, selectedColor?.sizes]
   );
 
-  const { selectedImage, changeActiveImage } = useImageSelection(
-    selectedColor?.images[0]
-  );
-
-  if (isLoadingGood) {
-    return (
-      <Box>
-        <CircularProgress />
-      </Box>
-    );
-  }
-
-  const errorMessage =
-    error?.data?.message || error?.message || 'Не удалось загрузить товары';
-
-  if (isError) {
-    return (
-      <Box>
-        <Alert severity="error">{errorMessage}</Alert>
-      </Box>
-    );
-  }
+  const selectedSize = sizes.find((s) => s.id === sizeId) || sizes[0];
 
   return (
     <Stack className={classes.goodContainer}>
       <Gallery
-        images={selectedColor?.images}
+        images={selectedColor?.images || []}
         selectedImage={selectedImage}
-        onSelect={changeActiveImage}
+        onSelect={setSelectedImage}
       />
 
       <Stack>
@@ -68,25 +55,25 @@ export const GoodDetails = () => {
 
         <Stack className={classes.goodInfo}>
           <ProductInfo
-            name={good.name}
+            name={good?.name}
             description={selectedColor?.description}
           />
 
           <ColorPicker
-            colors={colors}
+            colors={good?.colors}
             selectedId={selectedColor?.id}
-            changeColor={changeColor}
+            changeColor={setColorId}
           />
 
           <SizePicker
             sizes={sizes}
             selectedId={selectedSize?.id}
-            changeSize={changeSize}
-            hasSizes={hasSizes}
+            changeSize={setSizeId}
+            hasSizes={sizes?.length > 0}
           />
 
           <AddToCartButton
-            good={good}
+            good={good || {}}
             color={selectedColor}
             size={selectedSize}
           />
